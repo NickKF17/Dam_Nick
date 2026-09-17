@@ -1,0 +1,32 @@
+package Ficheros;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.List;
+
+public class Ejercicio1 {
+
+	public static void main(String[] args) throws Exception{
+	leerAnimes("animes.txt");
+
+	}
+public static HashMap<Integer, String> leerAnimes(String fichero) throws Exception{
+	HashMap<Integer, String> anipersonajes=new HashMap<Integer, String>();
+	try {
+		List<String> lineas = Files.readAllLines(Path.of(fichero));
+		
+		for(String anime:lineas) {
+				anipersonajes.put(Integer.parseInt(anime.substring(0,anime.indexOf(" "))),anime.substring(anime.indexOf(" ")));
+		}	
+	}catch(Exception e){
+		System.out.println("Error al leer el archivo: " + e.getMessage());
+		
+	}
+	
+	return anipersonajes;
+}
+}
