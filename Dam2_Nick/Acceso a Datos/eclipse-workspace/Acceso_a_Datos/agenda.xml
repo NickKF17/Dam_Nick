@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<agenda>
+    <contacto>
+        <nombre>Kagari</nombre>
+        <telefono>1</telefono>
+    </contacto>
+    <contacto>
+        <nombre>Alya</nombre>
+        <telefono>01</telefono>
+    </contacto>
+    <contacto>
+        <nombre>Ai</nombre>
+        <telefono>001</telefono>
+    </contacto>
+</agenda>

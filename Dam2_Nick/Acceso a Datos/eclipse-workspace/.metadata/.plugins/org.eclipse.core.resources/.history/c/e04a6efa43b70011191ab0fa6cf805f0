@@ -1,0 +1,33 @@
+package Ficheros;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import  org.w3c.dom.*;
+
+public class AgedaXML {
+
+	public static void main(String[] args) throws Exception {
+		leerAgenda("agenda.xml");
+	}
+
+	private static void leerAgenda(String fichero) throws Exception{
+		//Leemos el XML y lo almacenamos e el objeto doc	
+		DocumentBuilderFactory factory =DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder= factory.newDocumentBuilder();
+		Document doc = builder.parse(fichero);
+		//Creamos una lista iterable
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+	//Recorremos la lista de contactos
+		for(int i=0;i<listaContactos.getLength();i++) {
+			
+			//Cojo el elemento i y lo guardo en el objeto contacto
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+			
+			
+			String nombre=contacto.getElementsByTagName("nombre").item(0).getTextContent();
+			String telefono=contacto.getElementsByTagName("telefono").item(0).getTextContent();
+		}
+	}
+
+}

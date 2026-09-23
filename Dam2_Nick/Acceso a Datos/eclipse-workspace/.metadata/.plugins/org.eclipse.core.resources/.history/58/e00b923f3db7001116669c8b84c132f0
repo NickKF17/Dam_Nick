@@ -1,0 +1,60 @@
+package Ficheros;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.KeyStore.Entry;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Ejercicio1 {
+
+	public static void main(String[] args) throws Exception {
+	    
+	    HashMap<Integer, String> animes = new HashMap<>(); 
+	    animes = leerFichero("animes.txt");
+	    
+	    HashMap<Integer, String> personajes = new HashMap<>(); 
+	    personajes = leerFichero("personajes.txt");
+	    
+	    // --- AÑADE ESTO PARA VERIFICAR LOS DATOS ---
+	    System.out.println("=== ANIMES LEÍDOS ===");
+	    for (Map.Entry<Integer, String> entry : animes.entrySet()) {
+	        System.out.println("ID: " + entry.getKey() + " | Nombre: " + entry.getValue());
+	    }
+	    
+	    System.out.println("\n=== PERSONAJES LEÍDOS ===");
+	    for (Map.Entry<Integer, String> entry : personajes.entrySet()) {
+	        System.out.println("ID: " + entry.getKey() + " | Nombre: " + entry.getValue());
+	    }
+	    // -------------------------------------------
+	    
+	    HashMap<Integer, ArrayList<String>> todo = new HashMap<>(); 
+	}
+	public static HashMap<Integer, String> leerFichero(String fichero) {
+	    HashMap<Integer, String> anipersonajes = new HashMap<>();
+	    try {
+	        List<String> lineas = Files.readAllLines(Path.of(fichero));
+	        
+	        for (String linea : lineas) {
+	            // Ignorar líneas vacías
+	            if (linea.trim().isEmpty()) continue;
+	            
+	            int espacio = linea.indexOf(" ");
+	            if (espacio != -1) {
+	                int id = Integer.parseInt(linea.substring(0, espacio));
+	                String valor = linea.substring(espacio + 1).trim();
+	                anipersonajes.put(id, valor);
+	            }
+	        }   
+	    } catch (Exception e) {
+	        System.out.println("Error al leer el archivo " + fichero + ": " + e.getMessage());
+	    }
+	    return anipersonajes;
+	}
+}
+

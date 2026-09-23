@@ -1,0 +1,15 @@
+package Ficheros;
+import  org.w3c.dom.*;
+
+public class AgedaXML {
+
+	public static void main(String[] args) throws Exception {
+		leerAgenda("agenda.xml");
+	}
+
+	private static void leerAgenda(String string) throws Exception{
+		
+		
+	}
+
+}

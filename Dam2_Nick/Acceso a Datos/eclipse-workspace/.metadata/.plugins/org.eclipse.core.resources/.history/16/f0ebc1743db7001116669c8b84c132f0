@@ -1,0 +1,100 @@
+package Ficheros;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Ejercicio1 {
+
+    public static void main(String[] args) {
+        
+        // 1. Leer el fichero de animes: HashMap<ID_Anime, Nombre_Anime>
+        HashMap<Integer, String> animes = leerAnimes("animes.txt");
+        
+        // 2. Leer el fichero de personajes: HashMap<ID_Personaje, [ID_Anime, Nombre_Personaje]>
+        // Guardaremos la información de cada personaje en un objeto auxiliar o un Array/String procesado.
+        // Vamos a usar una estructura cómoda: un Map donde la clave es el ID del Anime y el valor es una Lista de nombres de personajes.
+        
+        HashMap<Integer, ArrayList<String>> animePersonajes = new HashMap<>();
+        ArrayList<String> personajesSinAnime = new ArrayList<>();
+
+        try {
+            List<String> lineasPersonajes = Files.readAllLines(Path.of("personajes.txt"));
+            
+            for (String linea : lineasPersonajes) {
+                if (linea.trim().isEmpty()) continue;
+                
+                // Suponemos formato: ID_Personaje  ID_Anime  Nombre del Personaje
+                // Ejemplo: "1 1 Roronoa Zoro" o "6 0 Shinji Ikari" (si el 0 o -1 significa sin anime)
+                String[] partes = linea.trim().split(" ", 3);
+                if (partes.length >= 3) {
+                    int idAnime = Integer.parseInt(partes[1]);
+                    String nombrePersonaje = partes[2];
+                    
+                    // Comprobamos si el anime existe en nuestro mapa de animes
+                    if (animes.containsKey(idAnime)) {
+                        // Si ya existe la entrada en el mapa 'todo', añadimos el personaje a su lista
+                        animePersonajes.putIfAbsent(idAnime, new ArrayList<>());
+                        animePersonajes.get(idAnime).add(nombrePersonaje);
+                    } else {
+                        // Si el ID del anime no existe, va para personajes sin anime
+                        personajesSinAnime.add(nombrePersonaje);
+                    }
+                }
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error al procesar los personajes: " + e.getMessage());
+        }
+
+        // 3. Mostrar el resultado con el formato exacto requerido
+        
+        // Recorremos todos los animes que tenemos registrados
+        for (Map.Entry<Integer, String> entry : animes.entrySet()) {
+            int idAnime = entry.getKey();
+            String nombreAnime = entry.getValue();
+            
+            System.out.println(nombreAnime);
+            
+            // Verificamos si tiene personajes asociados
+            if (animePersonajes.containsKey(idAnime) && !animePersonajes.get(idAnime).isEmpty()) {
+                for (String personaje : animePersonajes.get(idAnime)) {
+                    System.out.println("- " + personaje);
+                }
+            } else {
+                System.out.println("- No hay personajes");
+            }
+        }
+        
+        // Mostrar personajes sin anime (si los hay)
+        if (!personajesSinAnime.isEmpty()) {
+            System.out.println("Personajes sin anime");
+            for (String personaje : personajesSinAnime) {
+                System.out.println("- " + personaje);
+            }
+        }
+    }
+
+    // Método auxiliar para leer los animes
+    public static HashMap<Integer, String> leerAnimes(String fichero) {
+        HashMap<Integer, String> mapaAnimes = new HashMap<>();
+        try {
+            List<String> lineas = Files.readAllLines(Path.of(fichero));
+            for (String linea : lineas) {
+                if (linea.trim().isEmpty()) continue;
+                int espacio = linea.indexOf(" ");
+                if (espacio != -1) {
+                    int id = Integer.parseInt(linea.substring(0, espacio));
+                    String nombre = linea.substring(espacio + 1).trim();
+                    mapaAnimes.put(id, nombre);
+                }
+            }   
+        } catch (Exception e) {
+            System.out.println("Error al leer el archivo " + fichero + ": " + e.getMessage());
+        }
+        return mapaAnimes;
+    }
+}
