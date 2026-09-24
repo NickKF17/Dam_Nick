@@ -1,6 +1,13 @@
 package Ficheros;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.stream.util.StreamReaderDelegate;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import  org.w3c.dom.*;
 
@@ -12,12 +19,106 @@ public class AgedaXML {
 		buscarEnAgenda("Alya","agenda.xml");
 		buscarEnAgenda("Ai","agenda.xml");
 		buscarEnAgenda("Nick","agenda.xml");
+		eliminarContacto("Nick", "agenda.xml");
+		nuevoContacto("Nick","67676767" , "agenda.xml");
+		modificarContacto("Nick", "1704 ", "agenda.xml");
+		buscarEnAgenda("Nick","agenda.xml");
 	}
-
-	private static void buscarEnAgenda(String nombre, String fichero) throws Exception {
+	private static void modificarContacto(String nombre,String telefono, String fichero) throws Exception {
+		Document doc=leerXML(fichero);
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+		boolean encontrado = false;
+		for(int i=0;i<listaContactos.getLength() && encontrado==false;i++) {
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+		if(contacto.getElementsByTagName("nombre").item(0).getTextContent().equalsIgnoreCase(nombre)) {
+			encontrado=true;
+				
+				Element telefonoNuevo=(Element)contacto.getElementsByTagName("telefono").item(0);
+				telefonoNuevo.setTextContent(telefono);
+						grabarXML(doc,fichero);
+						System.out.println("Se ha modificado el telefono del contacto: "+nombre);
+					
+		}
+		}
+		if(encontrado==false)
+			System.out.println("El contacto "+ nombre+" no se puede modificar porque no existe");
+		}
+		
+	private static void nuevoContacto(String nombre,String telefono, String fichero) throws Exception {
+		Document doc=leerXML(fichero);
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+		boolean encontrado = false;
+		for(int i=0;i<listaContactos.getLength() && encontrado==false;i++) {
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+		if(contacto.getElementsByTagName("nombre").item(0).getTextContent().equalsIgnoreCase(nombre)) {
+			encontrado=true;
+		}
+		}
+		if(encontrado==true)
+			System.out.println("El contacto "+ nombre+" no se puede crear porque ya existe");
+		else {
+			
+			//Creo las etiquetas vacias
+			Element nuevoContacto= doc.createElement("contacto");
+			Element nombreContacto= doc.createElement("nombre");
+			Element telefonoContacto= doc.createElement("telefono");
+			
+			//Le doy valor a las etiquetas
+			nombreContacto.setTextContent(nombre);
+			telefonoContacto.setTextContent(telefono);
+			
+			//Meto las subetiquetas en la etiqueta padre
+			nuevoContacto.appendChild(nombreContacto);
+			nuevoContacto.appendChild(telefonoContacto);
+			
+			//Los metemos en el xml
+			Element raiz=doc.getDocumentElement();
+			raiz.appendChild(nuevoContacto);
+			grabarXML(doc,fichero);
+			
+			System.out.println("Nuevo contacto creado: "+nombre);
+		}
+		}
+	private static void eliminarContacto(String nombre, String fichero) throws Exception {
+		Document doc=leerXML(fichero);
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+		boolean encontrado = false;
+		for(int i=0;i<listaContactos.getLength() && encontrado==false;i++) {
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+		if(contacto.getElementsByTagName("nombre").item(0).getTextContent().equalsIgnoreCase(nombre)) {
+			encontrado=true;
+			Element raiz =doc.getDocumentElement();
+			raiz.removeChild(contacto);
+			System.out.println("El contacto "+nombre+ " ha sido eliminado");
+			
+			grabarXML(doc,fichero);
+		}
+		}
+		if(encontrado==false)
+			System.out.println("El contacto "+ nombre+" no se puede eliminar porque no esta en tu agenda");
+		}
+	public static Document leerXML(String fichero) throws Exception{
 		DocumentBuilderFactory factory =DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder= factory.newDocumentBuilder();
 		Document doc = builder.parse(fichero);
+		return builder.parse(fichero);
+	}
+
+	private static void grabarXML(Document doc,String fichero) throws TransformerException {
+		TransformerFactory transformerFactory=TransformerFactory.newInstance();
+		Transformer transformer=transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount","4");
+		DOMSource source =new DOMSource(doc);
+		StreamResult result=new StreamResult(fichero);
+		transformer.transform(source, result);
+		
+	}
+	private static void buscarEnAgenda(String nombre, String fichero) throws Exception {
+		Document doc= leerXML(fichero);
 		NodeList listaContactos=doc.getElementsByTagName("contacto");
 		boolean encontrado = false;
 		for(int i=0;i<listaContactos.getLength() && encontrado==false;i++) {

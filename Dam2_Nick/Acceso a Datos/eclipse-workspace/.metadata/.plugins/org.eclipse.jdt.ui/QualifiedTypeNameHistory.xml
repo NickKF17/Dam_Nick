@@ -11,4 +11,7 @@
     <fullyQualifiedTypeName name="java.security.KeyStore.Entry"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+    <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
 </qualifiedTypeNameHistroy>

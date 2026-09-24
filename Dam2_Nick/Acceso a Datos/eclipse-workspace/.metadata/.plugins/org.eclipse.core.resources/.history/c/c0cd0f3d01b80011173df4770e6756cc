@@ -1,0 +1,98 @@
+package Ficheros;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.stream.util.StreamReaderDelegate;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import  org.w3c.dom.*;
+
+public class AgedaXML {
+
+	public static void main(String[] args) throws Exception {
+		leerAgenda("agenda.xml");
+		buscarEnAgenda("Kagari","agenda.xml");
+		buscarEnAgenda("Alya","agenda.xml");
+		buscarEnAgenda("Ai","agenda.xml");
+		buscarEnAgenda("Nick","agenda.xml");
+		eliminarContacto("Nick", "agenda.xml");
+	}
+	private static void eliminarContacto(String nombre, String fichero) throws Exception {
+		Document doc=leerXML(fichero);
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+		boolean encontrado = false;
+		for(int i=0;i<listaContactos.getLength() && encontrado==false;i++) {
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+		if(contacto.getElementsByTagName("nombre").item(0).getTextContent().equalsIgnoreCase(nombre)) {
+			encontrado=true;
+			Element raiz =doc.getDocumentElement();
+			raiz.removeChild(contacto);
+			System.out.println("El contacto "+nombre+ " ha sido eliminado");
+			
+			grabarXML(doc,fichero);
+		}
+		}
+		if(encontrado==false)
+			System.out.println("El contacto "+ nombre+" no se puede eliminar porque no esta en tu agenda");
+		}
+	public static Document leerXML(String fichero) throws Exception{
+		DocumentBuilderFactory factory =DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder= factory.newDocumentBuilder();
+		Document doc = builder.parse(fichero);
+		return builder.parse(fichero);
+	}
+
+	private static void grabarXML(Document doc,String fichero) throws TransformerException {
+		TransformerFactory transformerFactory=TransformerFactory.newInstance();
+		Transformer transformer=transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount","4");
+		DOMSource source =new DOMSource(doc);
+		StreamResult result=new StreamResult(fichero);
+		transformer.transform(source, result);
+		
+	}
+	private static void buscarEnAgenda(String nombre, String fichero) throws Exception {
+		Document doc= leerXML(fichero);
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+		boolean encontrado = false;
+		for(int i=0;i<listaContactos.getLength() && encontrado==false;i++) {
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+		if(contacto.getElementsByTagName("nombre").item(0).getTextContent().equalsIgnoreCase(nombre)) {
+			encontrado=true;
+			System.out.println(contacto.getElementsByTagName("telefono").item(0).getTextContent());
+		}
+		}
+		if(encontrado==false)
+			System.out.println("El contacto "+ nombre+" no esta en tu agenda");
+	}
+
+	private static void leerAgenda(String fichero) throws Exception{
+		//Leemos el XML y lo almacenamos e el objeto doc	
+		DocumentBuilderFactory factory =DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder= factory.newDocumentBuilder();
+		Document doc = builder.parse(fichero);
+		//Creamos una lista iterable
+		NodeList listaContactos=doc.getElementsByTagName("contacto");
+	//Recorremos la lista de contactos
+		for(int i=0;i<listaContactos.getLength();i++) {
+			
+			//Cojo el elemento i y lo guardo en el objeto contacto
+			Node nodo=listaContactos.item(i);
+			Element contacto =(Element) nodo;
+			
+			
+			String nombre=contacto.getElementsByTagName("nombre").item(0).getTextContent();
+			String telefono=contacto.getElementsByTagName("telefono").item(0).getTextContent();
+		
+			System.out.println(nombre+" - "+telefono);
+		}
+	}
+
+}
