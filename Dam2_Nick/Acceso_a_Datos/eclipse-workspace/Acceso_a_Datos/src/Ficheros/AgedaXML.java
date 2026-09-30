@@ -21,8 +21,9 @@ public class AgedaXML {
 		buscarEnAgenda("Nick","agenda.xml");
 		eliminarContacto("Nick", "agenda.xml");
 		nuevoContacto("Nick","67676767" , "agenda.xml");
-		modificarContacto("Nick", "1704 ", "agenda.xml");
 		buscarEnAgenda("Nick","agenda.xml");
+		modificarContacto("Nick", "1704 ", "agenda.xml");
+	
 	}
 	private static void modificarContacto(String nombre,String telefono, String fichero) throws Exception {
 		Document doc=leerXML(fichero);

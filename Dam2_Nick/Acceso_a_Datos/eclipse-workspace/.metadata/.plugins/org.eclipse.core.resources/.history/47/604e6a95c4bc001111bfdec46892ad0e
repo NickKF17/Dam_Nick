@@ -1,0 +1,12 @@
+package Ficheros;
+
+import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+
+public class AgendaJSON {
+
+		@SerializedName("agenda")
+		private List<Contacto> contactos;
+
+}

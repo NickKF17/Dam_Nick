@@ -14,4 +14,9 @@
     <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
     <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
     <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+    <fullyQualifiedTypeName name="Ficheros.Contacto"/>
+    <fullyQualifiedTypeName name="com.google.gson.annotations.SerializedName"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.sym"/>
+    <fullyQualifiedTypeName name="AgendaJson.Contacto"/>
 </qualifiedTypeNameHistroy>

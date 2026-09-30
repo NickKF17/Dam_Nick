@@ -1,0 +1,28 @@
+package AgendaJson;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
+
+public class AgendaJSON {
+public static void main(String[] args){
+	final String ruta="agenda.json";
+	leerAgenda(ruta);
+}
+
+private static void leerAgenda(String ruta) {
+	try(Reader lector =new FileReader(ruta)){
+		Gson gson= new Gson();
+		Agenda agenda=gson.fromJson(lector, Agenda.class);
+		List<Contacto> contactos= agenda.getContactos();
+	}catch(Exception e) {
+		System.out.println("Error al leer el archivo");
+		
+	}
+	
+}
+
+}

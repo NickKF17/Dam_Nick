@@ -1,0 +1,13 @@
+package Ficheros;
+
+public class Contacto {
+private String nombre;
+private String dni;
+private String telefono;
+public Contacto(String n ,String dni,String tel){
+	this.nombre=n;
+	this.dni=dni;
+	this.telefono=tel;
+}
+
+}
