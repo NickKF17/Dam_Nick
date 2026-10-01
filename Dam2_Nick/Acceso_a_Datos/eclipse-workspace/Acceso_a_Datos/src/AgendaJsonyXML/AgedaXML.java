@@ -1,4 +1,4 @@
-package Ficheros;
+package AgendaJsonyXML;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.util.StreamReaderDelegate;

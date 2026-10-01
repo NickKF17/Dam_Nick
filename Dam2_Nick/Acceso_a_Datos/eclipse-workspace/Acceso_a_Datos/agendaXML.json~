@@ -1,0 +1,44 @@
+{
+  "agenda": [
+    {
+      "nombre": "Kagari",
+      "telefono": 1,
+      "dni": "0"
+    },
+    {
+      "nombre": "Alya",
+      "telefono": 1,
+      "dni": "0"
+    },
+    {
+      "nombre": "Ai",
+      "telefono": 1,
+      "dni": "0"
+    },
+    {
+      "nombre": "Nick",
+      "telefono": 1704,
+      "dni": "0"
+    },
+    {
+      "nombre": "Kagari",
+      "telefono": 1,
+      "dni": "0"
+    },
+    {
+      "nombre": "Alya",
+      "telefono": 1,
+      "dni": "0"
+    },
+    {
+      "nombre": "Ai",
+      "telefono": 1,
+      "dni": "0"
+    },
+    {
+      "nombre": "Nick",
+      "telefono": 1704,
+      "dni": "0"
+    }
+  ]
+}

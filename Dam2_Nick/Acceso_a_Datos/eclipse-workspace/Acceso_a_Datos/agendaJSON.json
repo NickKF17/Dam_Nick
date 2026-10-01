@@ -1,16 +1,39 @@
 {
-"agenda":[
-{"nombre": "Kagari Fuyukawa",
-"dni": "K0945499",
-"telefono" : "74637774"},
-{"nombre": "Alya",
-"dni": "A0945499",
-"telefono" : "74637774"},
-{"nombre": "Marin Kitagawa",
-"dni": "M0945499",
-"telefono" : "74637774"},
-{"nombre": "Ai Hoshino",
-"dni": "H0945499",
-"telefono" : "74637774"}
-]
+  "agenda": [
+    {
+      "nombre": "Kagari Fuyukawa",
+      "telefono": 74637774,
+      "dni": "K0945499"
+    },
+    {
+      "nombre": "Alya",
+      "telefono": 74637774,
+      "dni": "A0945499"
+    },
+    {
+      "nombre": "Marin Kitagawa",
+      "telefono": 74637774,
+      "dni": "M0945499"
+    },
+    {
+      "nombre": "Ai Hoshino",
+      "telefono": 74637774,
+      "dni": "H0945499"
+    },
+    {
+      "nombre": "Miku Nakano",
+      "telefono": 676767676,
+      "dni": "67676767S"
+    },
+    {
+      "nombre": "Itsuki Nakano",
+      "telefono": 676767676,
+      "dni": "67676767S"
+    },
+    {
+      "nombre": "Nino Nakano",
+      "telefono": 67676767,
+      "dni": "03492765P"
+    }
+  ]
 }
