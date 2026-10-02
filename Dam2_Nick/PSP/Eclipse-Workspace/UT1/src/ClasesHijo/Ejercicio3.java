@@ -1,5 +1,4 @@
-package hijo;
-
+package ClasesHijo;
 import java.util.Scanner;
 
 public class Ejercicio3 {

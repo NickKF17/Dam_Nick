@@ -1,4 +1,4 @@
-package padre;
+package ClasesPadre;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class LlamarEjercicio4 {
 
     public static void main(String[] args) throws Exception {
-
+//notas_psp.txt
         Scanner teclado = new Scanner(System.in);
-//Fichero notas_psp.txt
+
         while (true) {
             System.out.println("Escribe la asignatura:");
             String asignatura = teclado.nextLine();
@@ -26,7 +26,7 @@ public class LlamarEjercicio4 {
             }
 
             // Lanzamos el programa Ejercicio4 con los 2 argumentos
-            ProcessBuilder pb = new ProcessBuilder("java", "-cp", "../ClasesHijo/bin", "hijo.Ejercicio4", asignatura, fichero);
+            ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ClasesHijo.Ejercicio4", asignatura, fichero);
             Process proceso = pb.start();
 
             // Leemos lo que escribe el hijo

@@ -1,4 +1,4 @@
-package Ejercicios_PDF;
+package Ejercicios_PDFRARO;
 import java.util.Scanner;
 
 /*

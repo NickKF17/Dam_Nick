@@ -1,4 +1,4 @@
-package hijo;
+package ClasesHijo;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class Ejercicio1 {
             System.exit(-1);
         }
 
-        String texto = entrada.nextLine().trim();
+        String texto = entrada.nextLine();
 
         // Si la linea esta vacia -> -1
         if (texto.equals("")) {

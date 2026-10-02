@@ -1,4 +1,4 @@
-package Ejercicios_PDF;
+package Ejercicios_PDFRARO;
 /*
  Recibe un argumento y devuelve con System.exit():
    -1 -> argumento vacío

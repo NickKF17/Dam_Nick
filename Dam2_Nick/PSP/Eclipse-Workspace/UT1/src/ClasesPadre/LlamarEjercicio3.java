@@ -1,4 +1,4 @@
-package padre;
+package ClasesPadre;
 
 import java.io.File;
 
@@ -12,7 +12,7 @@ public class LlamarEjercicio3 {
             return;
         }
 
-        ProcessBuilder pb = new ProcessBuilder("java", "-cp", "../ClasesHijo/bin", "hijo.Ejercicio3");
+        ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ClasesHijo.Ejercicio3");
 
         // Entrada desde texto.txt, salida a palindromo.txt y errores a error.txt
         pb.redirectInput(texto);

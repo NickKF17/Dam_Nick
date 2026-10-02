@@ -1,4 +1,4 @@
-package padre;
+package ClasesPadre;
 
 import java.io.File;
 
@@ -13,7 +13,7 @@ public class LlamarEjercicio1 {
             return;
         }
 
-        ProcessBuilder pb = new ProcessBuilder("java", "-cp", "../ClasesHijo/bin", "hijo.Ejercicio1");
+        ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ClasesHijo.Ejercicio1");
 
         // La entrada del hijo ya no es el teclado, es el fichero dato.txt
         pb.redirectInput(fichero);

@@ -1,4 +1,4 @@
-package hijo;
+package ClasesHijo;
 
 import java.io.File;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package padre;
+package ClasesPadre;
 
 import java.io.File;
 
@@ -12,7 +12,7 @@ public class LlamarEjercicio2 {
             return;
         }
 
-        ProcessBuilder pb = new ProcessBuilder("java", "-cp", "../ClasesHijo/bin", "hijo.Ejercicio2");
+        ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ClasesHijo.Ejercicio2");
 
         // Entrada desde datos.txt, salida a suma.txt y errores a error.txt
         pb.redirectInput(datos);
