@@ -8,22 +8,22 @@ public class LlamarEjercicio4 {
     public static void main(String[] args) throws Exception {
 //notas_psp.txt
         Scanner teclado = new Scanner(System.in);
-
-        while (true) {
+        boolean essimbolo=false;
+        while (essimbolo==false) {
             System.out.println("Escribe la asignatura:");
             String asignatura = teclado.nextLine();
 
             // Si escribe * terminamos
             if (asignatura.equals("*")) {
-                break;
-            }
+               essimbolo=true;
+            }else {
 
             System.out.println("Escribe el nombre del fichero:");
             String fichero = teclado.nextLine();
 
             if (fichero.equals("*")) {
-                break;
-            }
+                essimbolo=true;
+            }else {
 
             // Lanzamos el programa Ejercicio4 con los 2 argumentos
             ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ClasesHijo.Ejercicio4", asignatura, fichero);
@@ -44,6 +44,8 @@ public class LlamarEjercicio4 {
             System.out.println("Valor de Salida: " + salida);
             for (String linea : respuesta) {
                 System.out.println(linea);
+            }
+            }
             }
             System.out.println();
         }
