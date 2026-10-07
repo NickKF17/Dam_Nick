@@ -1,28 +1,62 @@
 package AgendaJsonyXML;
 
-public class Contacto {
-	private String nombre;
-	private int telefono;
-	private String dni;
+import java.util.ArrayList;
+import java.util.List;
 
-	public Contacto(String n, int t, String dni) {
-		this.nombre = n;
-		this.telefono = t;
-		this.dni = dni;
-	}
+	public class Contacto {
+	    private String nombre;
+	    private List<String> telefonos; // Ahora es una lista
+	    private String dni;
 
+	    // 1. Constructor que recibe un solo teléfono (lo convierte a lista internamente)
+	    public Contacto(String nombre, String telefonoUnico, String dni) {
+	        this.nombre = nombre;
+	        this.telefonos = new ArrayList<>();
+	        if (telefonoUnico != null && !telefonoUnico.isEmpty()) {
+	            this.telefonos.add(telefonoUnico);
+	        }
+	        this.dni = dni;
+	    }
+
+	    // 2. Constructor que recibe directamente la lista de teléfonos
+	    public Contacto(String nombre, List<String> telefonos, String dni) {
+	        this.nombre = nombre;
+	        if (telefonos != null) {
+	            this.telefonos = telefonos; // Si te pasan una lista válida, la usas
+	        } else {
+	            this.telefonos = new ArrayList<>(); // Si te pasan null, creas una lista vacía nueva
+	        }
+	        this.dni = dni;
+	    }
+	    
+	    // Getters, setters...
+	
 	@Override
 	public String toString() {
-		return "Nombre: " + this.nombre + "\nTeléfono: " + this.telefono + "\nDNI: " + this.dni;
+		return "Nombre: " + this.nombre + "\nTeléfono: " + this.telefonos + "\nDNI: " + this.dni;
 	}
 
 	public String getNombre() {
-		return this.nombre;
-	}
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
-	public String getDni() {
-		return dni;
-	}
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<String> getTelefonos() {
+        return this.telefonos;
+    }
+
+    public void setTelefonos(List<String> telefonos) {
+        this.telefonos = telefonos;
+    }
+
+    public String getDni() {
+        return this.dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 }

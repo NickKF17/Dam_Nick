@@ -1,0 +1,28 @@
+package AgendaJsonyXML;
+
+public class Contacto {
+	private String nombre;
+	private int telefono;
+	private String dni;
+
+	public Contacto(String n, int t, String dni) {
+		this.nombre = n;
+		this.telefono = t;
+		this.dni = dni;
+	}
+
+	@Override
+	public String toString() {
+		return "Nombre: " + this.nombre + "\nTeléfono: " + this.telefono + "\nDNI: " + this.dni;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
+	}
+	public String getDni() {
+		return dni;
+	}
+}

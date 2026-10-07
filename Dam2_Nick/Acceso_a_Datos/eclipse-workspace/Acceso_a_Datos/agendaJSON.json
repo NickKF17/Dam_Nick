@@ -2,38 +2,90 @@
   "agenda": [
     {
       "nombre": "Kagari Fuyukawa",
-      "telefono": 74637774,
       "dni": "K0945499"
     },
     {
       "nombre": "Alya",
-      "telefono": 74637774,
       "dni": "A0945499"
     },
     {
       "nombre": "Marin Kitagawa",
-      "telefono": 74637774,
       "dni": "M0945499"
     },
     {
       "nombre": "Ai Hoshino",
-      "telefono": 74637774,
       "dni": "H0945499"
     },
     {
       "nombre": "Miku Nakano",
-      "telefono": 676767676,
       "dni": "67676767S"
     },
     {
       "nombre": "Itsuki Nakano",
-      "telefono": 676767676,
       "dni": "67676767S"
     },
     {
       "nombre": "Nino Nakano",
-      "telefono": 67676767,
+      "telefonos": [
+        "67676767"
+      ],
       "dni": "03492765P"
+    },
+    {
+      "nombre": "Kagari",
+      "telefonos": [
+        "1"
+      ],
+      "dni": ""
+    },
+    {
+      "nombre": "Alya",
+      "telefonos": [
+        "01"
+      ],
+      "dni": ""
+    },
+    {
+      "nombre": "Ai",
+      "telefonos": [
+        "001"
+      ],
+      "dni": ""
+    },
+    {
+      "nombre": "Nick",
+      "telefonos": [
+        "1704"
+      ],
+      "dni": ""
+    },
+    {
+      "nombre": "Kagari",
+      "telefonos": [
+        "1"
+      ],
+      "dni": "676767K"
+    },
+    {
+      "nombre": "Alya",
+      "telefonos": [
+        "01"
+      ],
+      "dni": "676767A"
+    },
+    {
+      "nombre": "Ai",
+      "telefonos": [
+        "001"
+      ],
+      "dni": "676767H"
+    },
+    {
+      "nombre": "Nick",
+      "telefonos": [
+        "1704"
+      ],
+      "dni": "676767N"
     }
   ]
 }

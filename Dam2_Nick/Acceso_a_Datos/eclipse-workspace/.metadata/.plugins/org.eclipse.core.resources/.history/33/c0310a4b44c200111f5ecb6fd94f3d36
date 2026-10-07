@@ -1,0 +1,176 @@
+package AgendaJsonyXML;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MigrarXMLJSON {
+
+    private static final String RUTA_JSON = "agendaXML.json";
+    private static final String RUTA_XML = "agenda.xml";
+
+    public static void main(String[] args) {
+        System.out.println("Iniciando proceso de migración de XML a JSON...");
+        
+        try {
+            migrarDatos(RUTA_XML, RUTA_JSON);
+            System.out.println("¡Migración completada con éxito!");
+        } catch (FileNotFoundException e) {
+            System.err.println("Error: No se encontró el archivo XML de origen -> " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error de E/S durante el proceso -> " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Orquesta la lectura del XML, la carga de datos previos y el guardado en JSON.
+     */
+    /**
+     * Orquesta la lectura del XML, la carga de datos previos, evita duplicados sin usar break 
+     * y guarda el resultado unificado en JSON.
+     */
+    /**
+     * Orquesta la lectura del XML, la carga de datos previos, evita duplicados 
+     * comprobando que los tres campos coincidan, y guarda el resultado en JSON.
+     */
+    public static void migrarDatos(String ficheroXml, String ficheroJson) throws Exception {
+        // 1. Cargar contactos existentes (si los hay)
+        List<Contacto> contactos = cargarListaContactos(ficheroJson);
+
+        // 2. Leer los nuevos contactos desde el XML
+        List<Contacto> nuevosContactos = leerContactosDesdeXML(ficheroXml);
+
+        // 3. Añadir únicamente si los tres datos no están repetidos exactamente
+        for (Contacto nuevo : nuevosContactos) {
+            boolean existe = false;
+            
+            for (Contacto existente : contactos) {
+                // Comparamos los tres datos simultáneamente
+                boolean mismoNombre = existente.getNombre().equalsIgnoreCase(nuevo.getNombre());
+                boolean mismoTelefono = existente.getTelefono() == nuevo.getTelefono(); // O .equals() si es String
+                boolean mismodni = existente.getDni().equalsIgnoreCase(nuevo.getDni()); // Ajusta según tu getter real
+
+                if (mismoNombre && mismoTelefono && mismoTelefono) {
+                    existe = true;
+                }
+            }
+            
+            // Si no existe un contacto idéntico, lo agregamos
+            if (!existe) {
+                contactos.add(nuevo);
+            } else {
+                System.out.println("Contacto idéntico omitido: " + nuevo.getNombre());
+            }
+        }
+
+        // 4. Guardar la lista actualizada en el archivo JSON
+        guardarAgenda(contactos, ficheroJson);
+    }
+
+    /**
+     * Procesa el archivo XML utilizando DOM Parser para extraer los contactos.
+     */
+    private static List<Contacto> leerContactosDesdeXML(String fichero) throws Exception {
+        List<Contacto> contactosXML = new ArrayList<>();
+
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(fichero);
+        
+        // Normalizar el documento XML es una buena práctica recomendada
+        doc.getDocumentElement().normalize();
+
+        NodeList listaContactos = doc.getElementsByTagName("contacto");
+
+        for (int i = 0; i < listaContactos.getLength(); i++) {
+            Node nodo = listaContactos.item(i);
+
+            if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementoContacto = (Element) nodo;
+
+                // Extracción segura de datos con validación de nulos básica
+                String nombre = obtenerTextoEtiqueta(elementoContacto, "nombre");
+                String telefono = obtenerTextoEtiqueta(elementoContacto, "telefono");
+
+                System.out.println("Procesando: " + nombre + " - " + telefono);
+                
+                // Nota: Es mejor mantener el teléfono como String para no perder ceros a la izquierda
+                contactosXML.add(new Contacto(nombre, telefono, "0"));
+            }
+        }
+
+        return contactosXML;
+    }
+
+    /**
+     * Método auxiliar para evitar NullPointerExceptions si una etiqueta viene vacía o no existe.
+     */
+    private static String obtenerTextoEtiqueta(Element elemento, String etiqueta) {
+        NodeList nodoLista = elemento.getElementsByTagName(etiqueta);
+        if (nodoLista != null && nodoLista.item(0) != null) {
+            return nodoLista.item(0).getTextContent().trim();
+        }
+        return "";
+    }
+
+    /**
+     * Guarda la lista de contactos en formato JSON usando Gson con formato legible (pretty printing).
+     */
+    public static void guardarAgenda(List<Contacto> contactos, String ruta) {
+        Agenda agenda = new Agenda();
+        agenda.setContactos(contactos);
+
+        // Uso de try-with-resources para asegurar el cierre del Writer
+        try (Writer escritor = new FileWriter(ruta)) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(agenda, escritor);
+        } catch (IOException e) {
+            System.err.println("Error al guardar el archivo JSON: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Carga la lista de contactos previa desde el archivo JSON si este existe.
+     */
+    public static List<Contacto> cargarListaContactos(String ruta) {
+        List<Contacto> contactos = new ArrayList<>();
+
+        // Validar primero si el archivo existe con java.nio para evitar excepciones innecesarias en consola
+        if (!Files.exists(Paths.get(ruta))) {
+            System.out.println("No se encontró un archivo JSON previo. Se creará uno nuevo.");
+            return contactos;
+        }
+
+        try (Reader lector = new FileReader(ruta)) {
+            Gson gson = new Gson();
+            Agenda agenda = gson.fromJson(lector, Agenda.class);
+            
+            if (agenda != null && agenda.getContactos() != null) {
+                contactos = agenda.getContactos();
+            }
+        } catch (IOException e) {
+            System.err.println("Advertencia: No se pudo leer correctamente la agenda previa.");
+        }
+
+        return contactos;
+    }
+}

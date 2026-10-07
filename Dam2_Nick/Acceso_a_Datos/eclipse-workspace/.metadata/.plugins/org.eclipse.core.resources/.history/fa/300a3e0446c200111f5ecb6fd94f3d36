@@ -1,0 +1,32 @@
+package AgendaJsonyXML;
+
+import java.util.ArrayList;
+
+public class Contacto {
+	private String nombre;
+	private ArrayList<String> telefono=new ArrayList();
+	private String dni;
+
+	public Contacto(String n, ArrayList<String> t, String dni) {
+		this.nombre = n;
+		this.telefono = t;
+		this.dni = dni;
+	}
+
+	@Override
+	public String toString() {
+		return "Nombre: " + this.nombre + "\nTeléfono: " + this.telefono + "\nDNI: " + this.dni;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+	public ArrayList<String> getTelefono() {
+		return telefono;
+	}
+	
+
+	public String getDni() {
+		return dni;
+	}
+}
