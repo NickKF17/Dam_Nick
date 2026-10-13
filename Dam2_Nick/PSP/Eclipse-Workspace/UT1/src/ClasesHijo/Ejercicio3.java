@@ -11,7 +11,7 @@ public class Ejercicio3 {
         // Si no hay texto -> error -1
         if (!entrada.hasNextLine()) {
             System.err.println("Error: el fichero está vacío");
-            System.exit(-1);
+            System.exit(-1); //Para que funcione y se pinte en el error.txt
         }
 
         String texto = entrada.nextLine();
@@ -34,6 +34,5 @@ public class Ejercicio3 {
             System.out.println("NO es palíndromo");
         }
 
-        System.exit(0);
     }
 }

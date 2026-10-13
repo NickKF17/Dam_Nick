@@ -11,7 +11,7 @@ public class LlamarEjercicio2 {
         Scanner teclado = new Scanner(System.in);
         ArrayList<String> numeros = new ArrayList<String>();
 
-        // Pedimos numeros hasta que se escriba * 
+        // Pedimos numeros hasta que se escriba *
         String linea = "";
         while (!linea.equals("*")) {
             System.out.println("Escribe un número:");
