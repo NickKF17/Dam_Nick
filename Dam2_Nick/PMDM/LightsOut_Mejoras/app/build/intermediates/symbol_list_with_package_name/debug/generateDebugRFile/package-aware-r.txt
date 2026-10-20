@@ -1,0 +1,13 @@
+com.example.lightsout
+id btnNuevaPartida
+id btnReiniciar
+id cronometro
+id filaDatos
+id filaTamano
+id spinnerTamano
+id tablero
+id txtMovimientos
+id txtTitulo
+layout activity_main
+string app_name
+style Theme_LightsOut

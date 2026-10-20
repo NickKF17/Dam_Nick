@@ -1,0 +1,11 @@
+com.example.colorfondo
+id btnAzul
+id btnElegir
+id btnRojo
+id btnVerde
+id layoutPrincipal
+id txtColor
+layout activity_color_picker
+layout activity_main
+string app_name
+style Theme_ColorFondo

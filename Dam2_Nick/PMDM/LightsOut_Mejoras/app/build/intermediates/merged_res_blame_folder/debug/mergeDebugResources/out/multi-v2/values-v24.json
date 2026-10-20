@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.lightsout.app-mergeDebugResources-21:/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "/home/alumno/.gradle/caches/9.6.0/transforms/f98a14cbca6a749cc2bd95f031e024cb/transformed/appcompat-1.7.0/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                }
+            ]
+        }
+    ]
+}

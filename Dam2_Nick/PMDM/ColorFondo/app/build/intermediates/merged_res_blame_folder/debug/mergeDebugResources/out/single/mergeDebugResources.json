@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.colorfondo.app-debug-22:/layout_activity_main.xml.flat",
+        "source": "com.example.colorfondo.app-main-24:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.colorfondo.app-debug-22:/layout_activity_color_picker.xml.flat",
+        "source": "com.example.colorfondo.app-main-24:/layout/activity_color_picker.xml"
+    }
+]
