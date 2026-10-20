@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+id btnBisiestos
+id btnComprobar
+id btnConvertir
+id btnTemperaturas
+id editTemp
+id editYear
+id spinnerDestino
+id spinnerOrigen
+id txtResultado
+layout activity_leap_year
+layout activity_main
+layout activity_temperature
+string app_name
+style Theme.Calculadoras

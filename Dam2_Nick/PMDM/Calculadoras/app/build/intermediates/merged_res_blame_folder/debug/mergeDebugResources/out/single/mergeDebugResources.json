@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.calculadoras.app-debug-22:/layout_activity_leap_year.xml.flat",
+        "source": "com.example.calculadoras.app-main-24:/layout/activity_leap_year.xml"
+    },
+    {
+        "merged": "com.example.calculadoras.app-debug-22:/layout_activity_main.xml.flat",
+        "source": "com.example.calculadoras.app-main-24:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.calculadoras.app-debug-22:/layout_activity_temperature.xml.flat",
+        "source": "com.example.calculadoras.app-main-24:/layout/activity_temperature.xml"
+    }
+]

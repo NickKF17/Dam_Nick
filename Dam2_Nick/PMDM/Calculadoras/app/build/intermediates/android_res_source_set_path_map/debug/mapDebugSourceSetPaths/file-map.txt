@@ -1,0 +1,8 @@
+com.example.calculadoras.app-pngs-0 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/build/generated/res/pngs/debug
+com.example.calculadoras.app-updated_navigation_xml-1 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/build/generated/updated_navigation_xml/debug
+com.example.calculadoras.app-packageDebugResources-2 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.calculadoras.app-packageDebugResources-3 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.calculadoras.app-debug-4 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.example.calculadoras.app-debug-5 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/src/debug/res
+com.example.calculadoras.app-main-6 /home/alumno/Dam_Nick/Dam2_Nick/PMDM/Calculadoras/app/src/main/res
+gradleHome-0 /home/alumno/.gradle
