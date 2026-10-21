@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Color "apagado": el que tienen todas las casillas al empezar (gris) -->
+    <color name="primario">#9E9E9E</color>
+    <!-- Color "activado": el que toman las casillas al pulsarlas (morado) -->
+    <color name="secundario">#7E57C2</color>
+</resources>

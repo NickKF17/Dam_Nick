@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Spinner para elegir el tamaño del tablero (3x3, 4x4 o 5x5).
+         Las opciones las añadimos desde MainActivity.kt -->
+    <Spinner
+        android:id="@+id/spinnerTamano"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Marcador de movimientos (a la izquierda) -->
+    <TextView
+        android:id="@+id/txtMovimientos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerTamano" />
+
+    <!-- Marcador de tiempo (a la derecha) -->
+    <TextView
+        android:id="@+id/txtTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerTamano" />
+
+    <!-- Tablero de 3x3: cuadrícula de 3 columnas x 3 filas con sus 9 botones.
+         Con ancho/alto 0dp y ratio 1:1 se adapta al espacio y siempre queda cuadrado.
+         Los tres tableros (3x3, 4x4 y 5x5) están en el mismo sitio, pero solo se ve
+         el que elige el Spinner (MainActivity.kt pone los demás en "gone"). -->
+    <GridLayout
+        android:id="@+id/tablero3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/btnNuevaPartida"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMovimientos">
+
+        <!-- Botones t3_0 ... t3_8: todos iguales. 0dp + weight 1 hace que cada uno
+             ocupe el mismo espacio y margin los separa. El color lo pone MainActivity.kt. -->
+        <Button
+            android:id="@+id/t3_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t3_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+    </GridLayout>
+
+    <!-- Tablero de 4x4: cuadrícula de 4 columnas x 4 filas con sus 16 botones.
+         Con ancho/alto 0dp y ratio 1:1 se adapta al espacio y siempre queda cuadrado.
+         Los tres tableros (3x3, 4x4 y 5x5) están en el mismo sitio, pero solo se ve
+         el que elige el Spinner (MainActivity.kt pone los demás en "gone"). -->
+    <GridLayout
+        android:id="@+id/tablero4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:columnCount="4"
+        android:rowCount="4"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btnNuevaPartida"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMovimientos">
+
+        <!-- Botones t4_0 ... t4_15: todos iguales. 0dp + weight 1 hace que cada uno
+             ocupe el mismo espacio y margin los separa. El color lo pone MainActivity.kt. -->
+        <Button
+            android:id="@+id/t4_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_13"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_14"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t4_15"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+    </GridLayout>
+
+    <!-- Tablero de 5x5: cuadrícula de 5 columnas x 5 filas con sus 25 botones.
+         Con ancho/alto 0dp y ratio 1:1 se adapta al espacio y siempre queda cuadrado.
+         Los tres tableros (3x3, 4x4 y 5x5) están en el mismo sitio, pero solo se ve
+         el que elige el Spinner (MainActivity.kt pone los demás en "gone"). -->
+    <GridLayout
+        android:id="@+id/tablero5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:columnCount="5"
+        android:rowCount="5"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btnNuevaPartida"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMovimientos">
+
+        <!-- Botones t5_0 ... t5_24: todos iguales. 0dp + weight 1 hace que cada uno
+             ocupe el mismo espacio y margin los separa. El color lo pone MainActivity.kt. -->
+        <Button
+            android:id="@+id/t5_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_13"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_14"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_15"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_16"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_17"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_18"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_19"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_20"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_21"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_22"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_23"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+        <Button
+            android:id="@+id/t5_24"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="4dp" />
+
+    </GridLayout>
+
+    <!-- Botón Nueva partida: genera un tablero aleatorio (siempre con solución) -->
+    <Button
+        android:id="@+id/btnNuevaPartida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/new_game"
+        app:layout_constraintBottom_toTopOf="@id/btnReiniciar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón Reiniciar: ocupa todo el ancho, va abajo del todo y es rojo con texto blanco -->
+    <Button
+        android:id="@+id/btnReiniciar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#C62828"
+        android:text="Reiniciar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
