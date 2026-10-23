@@ -53,7 +53,8 @@ public class Bomba implements Runnable {
     }
 
     public static void main(String[] args) {
-        hiloBomba = new Thread(new Bomba(1));
+        hiloBomba    = new Thread(new Bomba(1
+        		ç));
         Thread hiloArtificiero = new Thread(new Bomba(2));
 
         hiloBomba.start();
