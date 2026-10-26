@@ -74,13 +74,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Para hacer sonidos cortos (pitidos)
+    // Para hacer sonidos cortos
     private var sonidos: ToneGenerator? = null
 
     // Para hacer vibrar el móvil
     private var vibrador: Vibrator? = null
 
-    // onCreate se ejecuta una sola vez, cuando se abre la pantalla: aquí se prepara todo.
+    // onCreate se ejecuta una sola vez, cuando se abre la pantalla: aquí se prepara todo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) // carga el diseño de activity_main.xml
