@@ -1,0 +1,34 @@
+{
+  "agenda": [
+    {
+      "nombre": "Juan Perez",
+      "telefono": "600111222",
+      "dni": ""
+    },
+    {
+      "nombre": "Maria Lopez",
+      "telefono": "600333444",
+      "dni": ""
+    },
+    {
+      "nombre": "Pepe Pótamo",
+      "telefono": "655311052",
+      "dni": ""
+    },
+    {
+      "nombre": "José María Morales",
+      "telefono": "1112233",
+      "dni": ""
+    },
+    {
+      "nombre": "Leonor",
+      "telefono": "666554433",
+      "dni": ""
+    },
+    {
+      "nombre": "Sofía",
+      "telefono": "111222333",
+      "dni": ""
+    }
+  ]
+}

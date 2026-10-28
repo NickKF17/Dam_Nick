@@ -1,0 +1,1 @@
+Fichero datos/fichero2.txt escrito

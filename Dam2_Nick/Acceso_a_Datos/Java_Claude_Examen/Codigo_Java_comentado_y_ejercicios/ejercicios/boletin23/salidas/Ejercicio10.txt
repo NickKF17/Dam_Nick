@@ -1,0 +1,7 @@
+Número de datos válidos: 5
+Número de datos inválidos: 2
+Mínimo: 4.37
+Máximo: 1285.3
+Media aritmética: 652.294
+
+No se puede trabajar con el fichero: datos/noexiste.txt (No such file or directory)

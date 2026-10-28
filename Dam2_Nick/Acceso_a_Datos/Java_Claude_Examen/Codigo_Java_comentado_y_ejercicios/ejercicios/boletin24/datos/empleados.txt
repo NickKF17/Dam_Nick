@@ -1,0 +1,4 @@
+Imedio, Demetrio;Programador Categoría 2;1599.56;34
+Borriquero, Luis Ricardo;Analista;1341.60;46
+Lorin, Francisco;Administrativo;1095;24
+Cortada del Rosal, Rosa;Administrador de bases de datos;2256.99;58

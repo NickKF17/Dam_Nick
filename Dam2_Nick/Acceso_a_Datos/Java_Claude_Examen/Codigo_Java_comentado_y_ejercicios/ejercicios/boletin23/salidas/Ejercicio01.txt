@@ -1,0 +1,3 @@
+Introduce el nombre del fichero: El fichero noexiste.txt no existe
+Introduce el nombre del fichero: Introduce la palabra a buscar: El fichero tiene 4 líneas
+La palabra hola aparece 1 veces

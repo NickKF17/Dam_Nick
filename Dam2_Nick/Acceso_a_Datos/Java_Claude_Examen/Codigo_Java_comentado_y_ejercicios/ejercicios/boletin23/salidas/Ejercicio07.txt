@@ -1,0 +1,5 @@
+Registro incorrecto (línea 4), se ignora
+Quedan líneas sueltas al final: registro incompleto, se ignora
+Contactos correctos: 2
+ - José María Morales Vázquez, 53 años
+ - Pedro Ruiz, 41 años

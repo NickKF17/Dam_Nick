@@ -1,0 +1,36 @@
+Nuevos votos para el partido PA: 134.
+Votos hasta el momento:
+Partido PA: 134 votos
+Partido PB: 0 votos
+Partido PC: 0 votos
+Partido PD: 0 votos
+Nuevos votos para el partido PB: 98.
+Votos hasta el momento:
+Partido PA: 134 votos
+Partido PB: 98 votos
+Partido PC: 0 votos
+Partido PD: 0 votos
+Nuevos votos para el partido PD: 177.
+Votos hasta el momento:
+Partido PA: 134 votos
+Partido PB: 98 votos
+Partido PC: 0 votos
+Partido PD: 177 votos
+Nuevos votos para el partido PC: 220.
+Votos hasta el momento:
+Partido PA: 134 votos
+Partido PB: 98 votos
+Partido PC: 220 votos
+Partido PD: 177 votos
+Nuevos votos para el partido PC: 236.
+Votos hasta el momento:
+Partido PA: 134 votos
+Partido PB: 98 votos
+Partido PC: 456 votos
+Partido PD: 177 votos
+El partido PX no concurre a las elecciones
+Resultados con un 50% de escrutinio:
+Partido PC: 456 votos
+Partido PD: 177 votos
+Partido PA: 134 votos
+Partido PB: 98 votos

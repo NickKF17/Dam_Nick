@@ -1,0 +1,40 @@
+OK    26-1 empleados Patterson 
+OK    26-1 Morales no existe 
+OK    26-1 reportan Mary/William/Steve 
+OK    26-2 Kelly -> Peter Marsh 
+OK    26-2 Warburg sin empleado (fila con NULL) 
+OK    26-2 cliente Morales inexistente 
+OK    26-2 empleado 666 inexistente 
+OK    26-2 empleado 1370 
+OK    26-2 update 
+OK    26-3 stock<=500 
+OK    26-3 stock<=15 
+OK    26-3 stock<=10 
+OK    ex1 oficina Paris 
+OK    ex1 Madrid sin oficina 
+OK    ex1 empleados Paris 
+OK    ex1 Rio sin empleados 
+OK    ex2 contar Tokyo 
+OK    ex2 tras mover Tokyo=0, Paris=9 
+OK    ex3 Bulbasaur existe 
+OK    ex3 Sylveon no existe 
+OK    ex3 Bulbasaur evoluciona en Ivysaur 
+OK    ex3 Ivysaur viene de Bulbasaur 
+OK    ex3 Venusaur no evoluciona 
+OK    ex3 Mew nada 
+OK    ex3 Eevee 3 evoluciones 
+OK    ex6 tipo Dragón 
+OK    ex6 tipo Profesor 
+OK    ex6 pokemons dragón 
+OK    ex6 tipos Dragonite 
+OK    ex6 Acero sin pokemon 
+OK    ex4 Zimbabwe 
+OK    ex4 país inexistente 
+OK    ex5 país Zambia 
+OK    ex5 klingon no existe 
+OK    ex5 Spanish no se habla en Zambia 
+OK    ex5 Bislama ya oficial 
+OK    ex5 Bemba aún no oficial 
+OK    ex5 update 
+
+FALLOS: 0

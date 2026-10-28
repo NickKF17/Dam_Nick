@@ -1,0 +1,46 @@
+{
+  "pokedex": [
+    {
+      "codigo": 152,
+      "nombre": "Chikorita",
+      "peso": 6.4,
+      "altura": 0.9,
+      "tipo": "Planta"
+    },
+    {
+      "codigo": 158,
+      "nombre": "Totodile",
+      "peso": 9.5,
+      "altura": 0.6,
+      "tipo": "Agua"
+    },
+    {
+      "codigo": 163,
+      "nombre": "Hoothoot",
+      "peso": 21.2,
+      "altura": 0.7,
+      "tipo": "Normal, Volador"
+    },
+    {
+      "codigo": 155,
+      "nombre": "Cyndaquil",
+      "peso": 7.9,
+      "altura": 0.5,
+      "tipo": "Fuego"
+    },
+    {
+      "codigo": 167,
+      "nombre": "Spinarak",
+      "peso": 8.5,
+      "altura": 0.5,
+      "tipo": "Bicho, Veneno"
+    },
+    {
+      "codigo": 6,
+      "nombre": "Charizard",
+      "peso": 90.5,
+      "altura": 1.7,
+      "tipo": "Fuego, Volador"
+    }
+  ]
+}

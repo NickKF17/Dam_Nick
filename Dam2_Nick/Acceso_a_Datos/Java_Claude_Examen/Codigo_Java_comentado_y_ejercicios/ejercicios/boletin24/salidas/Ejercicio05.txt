@@ -1,0 +1,1 @@
+Introduce un artículo: Introduce la cantidad: Introduce el precio: Quieres seguir introduciendo artículos en la lista (si/no): Introduce un artículo: Introduce la cantidad: Introduce el precio: Quieres seguir introduciendo artículos en la lista (si/no): Tu lista de la compra se encuentra en el fichero compra.txt

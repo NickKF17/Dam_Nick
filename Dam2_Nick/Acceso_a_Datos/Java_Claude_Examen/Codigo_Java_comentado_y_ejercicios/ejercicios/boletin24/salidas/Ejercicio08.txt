@@ -1,0 +1,6 @@
+Líneas erróneas:
+ - Pérez2, Juan;Analista;1200
+ - García Luis;Analista;1200
+ - Soto, Ana;Analista;mil
+ - Ruiz, Eva;Analista;1200;5
+Líneas correctas grabadas en datos/salida.txt: 4

@@ -1,0 +1,1 @@
+Introduce el nombre del fichero de IPs: ADVERTENCIA: el fichero nada.txt no existe

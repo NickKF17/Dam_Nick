@@ -1,0 +1,6 @@
+Guardados 5 personajes en datos/personajes.dat
+Roronoa Zoro (One Piece)
+Vinsmoke Sanji (One Piece)
+Tanjiro Kamado (Demon Slayer)
+Naruto Uzumaki (Naruto)
+Ken Takakura (Dan Da Dan)

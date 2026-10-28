@@ -1,0 +1,1 @@
+Introduce el nombre del usuario: Introduce la contraseña: Vuelve a introducir la contraseña de nuevo: Cuenta de usuario grabada correctamente

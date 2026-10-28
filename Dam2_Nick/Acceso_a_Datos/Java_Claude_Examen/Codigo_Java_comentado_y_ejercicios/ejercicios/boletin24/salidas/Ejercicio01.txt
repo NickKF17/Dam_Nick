@@ -1,0 +1,1 @@
+Introduce un número entre 1 y 10: Tabla guardada en tabla-3.txt

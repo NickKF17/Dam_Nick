@@ -1,0 +1,5 @@
+Países en el fichero: 6
+Nombres: Australia, Canadá, Madagascar, China, Perú y Nueva Zelanda
+Las capitales de los mismos son: Canberra, Ottawa, Antananarivo, Pekín, Lima y Wellington
+Sus monedas oficiales son: Dólar australiano, Dólar canadiense, Ariary malgache, Renminbi (Yuan), Sol y Dólar neozelandés
+Sus animales mas representativos son Canguro, Castor, Lémur, Oso panda gigante, Vicuña y Kiwi

@@ -1,0 +1,4 @@
+El contenido de los ficheros es el mismo
+El contenido de los ficheros no es el mismo
+Error al leer: datos/noexiste.txt
+El contenido de los ficheros no es el mismo

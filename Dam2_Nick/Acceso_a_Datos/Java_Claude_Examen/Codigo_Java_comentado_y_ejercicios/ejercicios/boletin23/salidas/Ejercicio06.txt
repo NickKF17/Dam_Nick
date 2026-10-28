@@ -1,0 +1,7 @@
+Fichero datos/agenda_ok.txt:
+  El formato es correcto
+Fichero datos/agenda_mal.txt:
+  Error en el registro que empieza en la línea 4
+  El formato NO es correcto
+Fichero datos/agenda_incompleta.txt:
+  El formato NO es correcto

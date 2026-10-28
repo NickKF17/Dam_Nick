@@ -1,0 +1,1 @@
+Fichero datos/paises4.csv reescrito sin la moneda

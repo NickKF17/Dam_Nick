@@ -1,0 +1,7 @@
+Contactos leídos: 3
+ - José María Morales Vázquez [Familia], 53 años
+ - Rosa Gómez [Amigo], 34 años
+ - Pepe [Conocido], 66 años
+
+Formato incorrecto cerca de la línea 3: dejo de leer
+Contactos leídos: 0

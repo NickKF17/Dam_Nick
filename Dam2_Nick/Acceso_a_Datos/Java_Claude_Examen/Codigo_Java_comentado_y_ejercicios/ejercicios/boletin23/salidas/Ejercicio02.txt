@@ -1,0 +1,4 @@
+Número de líneas: 4
+Líneas en blanco: 1
+Cantidad de caracteres sin contar los espacios: 14
+Cantidad de espacios: 2
