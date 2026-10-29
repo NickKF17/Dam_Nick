@@ -3,13 +3,13 @@ package AgendaJsonyXML;
 import java.util.ArrayList;
 import java.util.List;
 
-	public class Contacto {
+	public class Contactos {
 	    private String nombre;
 	    private List<String> telefonos; // Ahora es una lista
 	    private String dni;
 
 	    // 1. Constructor que recibe un solo teléfono (lo convierte a lista internamente)
-	    public Contacto(String nombre, String telefonoUnico, String dni) {
+	    public Contactos(String nombre, String telefonoUnico, String dni) {
 	        this.nombre = nombre;
 	        this.telefonos = new ArrayList<>();
 	        if (telefonoUnico != null && !telefonoUnico.isEmpty()) {
@@ -19,7 +19,7 @@ import java.util.List;
 	    }
 
 	    // 2. Constructor que recibe directamente la lista de teléfonos
-	    public Contacto(String nombre, List<String> telefonos, String dni) {
+	    public Contactos(String nombre, List<String> telefonos, String dni) {
 	        this.nombre = nombre;
 	        if (telefonos != null) {
 	            this.telefonos = telefonos; // Si te pasan una lista válida, la usas

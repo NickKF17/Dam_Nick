@@ -54,17 +54,17 @@ public class MigrarXMLJSON {
      */
     public static void migrarDatos(String ficheroXml, String ficheroJson) throws Exception {
         // 1. Cargar contactos existentes (si los hay)
-        List<Contacto> contactos = cargarListaContactos(ficheroJson);
+        List<Contactos> contactos = cargarListaContactos(ficheroJson);
 
         // 2. Leer los nuevos contactos desde el XML (ahora traen sus teléfonos reales)
-        List<Contacto> nuevosContactos = leerContactosDesdeXML(ficheroXml);
+        List<Contactos> nuevosContactos = leerContactosDesdeXML(ficheroXml);
 
         // 3. Procesar para evitar duplicados de DNI + Nombre y agrupar teléfonos
-        for (Contacto nuevo : nuevosContactos) {
-            Contacto contactoExistente = null;
+        for (Contactos nuevo : nuevosContactos) {
+            Contactos contactoExistente = null;
 
             // Buscar si ya existe un contacto con el mismo nombre y DNI
-            for (Contacto existente : contactos) {
+            for (Contactos existente : contactos) {
                 boolean mismoNombre = existente.getNombre().equalsIgnoreCase(nuevo.getNombre());
                 boolean mismoDni = existente.getDni().equalsIgnoreCase(nuevo.getDni());
 
@@ -98,8 +98,8 @@ public class MigrarXMLJSON {
     /**
      * Procesa el archivo XML utilizando DOM Parser para extraer los contactos.
      */
-    private static List<Contacto> leerContactosDesdeXML(String fichero) throws Exception {
-        List<Contacto> contactosXML = new ArrayList<>();
+    private static List<Contactos> leerContactosDesdeXML(String fichero) throws Exception {
+        List<Contactos> contactosXML = new ArrayList<>();
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -130,7 +130,7 @@ public class MigrarXMLJSON {
                 }
 
                 // Añadimos el contacto con la lista de teléfonos y su DNI real
-                contactosXML.add(new Contacto(nombre, listaTels, dni));
+                contactosXML.add(new Contactos(nombre, listaTels, dni));
             }
         }
 
@@ -151,7 +151,7 @@ public class MigrarXMLJSON {
     /**
      * Guarda la lista de contactos en formato JSON usando Gson con formato legible (pretty printing).
      */
-    public static void guardarAgenda(List<Contacto> contactos, String ruta) {
+    public static void guardarAgenda(List<Contactos> contactos, String ruta) {
         Agenda agenda = new Agenda();
         agenda.setContactos(contactos);
 
@@ -167,8 +167,8 @@ public class MigrarXMLJSON {
     /**
      * Carga la lista de contactos previa desde el archivo JSON si este existe.
      */
-    public static List<Contacto> cargarListaContactos(String ruta) {
-        List<Contacto> contactos = new ArrayList<>();
+    public static List<Contactos> cargarListaContactos(String ruta) {
+        List<Contactos> contactos = new ArrayList<>();
 
         // Validar primero si el archivo existe con java.nio para evitar excepciones innecesarias en consola
         if (!Files.exists(Paths.get(ruta))) {

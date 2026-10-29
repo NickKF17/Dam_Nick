@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Agenda {
 	@SerializedName("agenda")
-	private List<Contacto> contactos;
+	private List<Contactos> contactos;
 
-	public List<Contacto> getContactos() {
+	public List<Contactos> getContactos() {
 		return contactos;
 	}
 
-	public void setContactos(List<Contacto> lista) {
+	public void setContactos(List<Contactos> lista) {
 		contactos = lista;
 	}
 }

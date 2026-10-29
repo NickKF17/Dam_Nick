@@ -25,13 +25,6 @@
       "dni": "67676767S"
     },
     {
-      "nombre": "Nino Nakano",
-      "telefonos": [
-        "67676767"
-      ],
-      "dni": "03492765P"
-    },
-    {
       "nombre": "Kagari",
       "telefonos": [
         "1"
@@ -86,6 +79,13 @@
         "1704"
       ],
       "dni": "676767N"
+    },
+    {
+      "nombre": "Nino Nakano",
+      "telefonos": [
+        "67676767"
+      ],
+      "dni": "03492765P"
     }
   ]
 }
