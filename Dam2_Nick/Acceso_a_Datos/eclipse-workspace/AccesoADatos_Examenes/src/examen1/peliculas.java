@@ -15,6 +15,6 @@ public peliculas(String titulo, String anio,String fase,String director ) {
 }
 @Override
 public String toString() {
-	return "Nombre: " + this.titulo + "\nFase: " + this.fase + "\nAnio: " + this.anio+ "\nDirector: " + this.director;
+	return this.anio+" - "+this.titulo +" "+"("+ this.fase +")"+ " Director: " + this.director;
 }
 }
