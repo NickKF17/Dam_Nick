@@ -2,22 +2,42 @@ package com.dam2.goya;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Main {
 // Atributo estático para deshabilitar el logger de hibernate
-//private static final Logger LOG_HIBERNATE =Logger.getLogger("org.hibernate");
+private static final Logger LOG_HIBERNATE =Logger.getLogger("org.hibernate");
 public static void main(String[] args) {
 // Le decimos a hibernate que solo muestre los errores y nomensajes informativos
-//LOG_HIBERNATE.setLevel(Level.SEVERE);
+LOG_HIBERNATE.setLevel(Level.SEVERE);
 EntityManagerFactory emf =
 Persistence.createEntityManagerFactory("clasePU");
 EntityManager em = emf.createEntityManager();
-em.getTransaction().begin();
-Producto p = new Producto("Teclado", 25.5);
+try {
+//em.getTransaction().begin();//Este y commit solo si hacemos cambios dentro de la base de datos
+String jpql="From Producto p Where p.precio > 30";
+	List<Producto> lista =em.createQuery(jpql,Producto.class).getResultList();
+	for(Producto p:lista)
+		System.out.println(p);
+	
+	System.out.println("Total de productos de la tabla: "+lista.size());
+/*
+	Producto p = new Producto("Teclado", 25.5);
 em.persist(p);
-em.getTransaction().commit();
-System.out.println("Producto guardado con id " + p.getId());
+p = new Producto("Cascos", 35.5);
+em.persist(p);
+p = new Producto("Mouse", 20.5);
+em.persist(p);
+em.persist(new Producto("Alfomobrilla", 30.5)); //Asi tambien se puede
+*/
+//em.getTransaction().commit();
+//System.out.println("Producto guardado con id " + p.getId());
+}catch(Exception e){
+	System.out.println("Error: " + e.getMessage());
+	em.getTransaction().rollback();
+}
 em.close();
 emf.close();
 /*

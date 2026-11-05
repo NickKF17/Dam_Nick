@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 @Entity
-//@Table(name = "productos")
+@Table(name = "productos")
 public class Producto {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +36,11 @@ this.precio = precio;
 }
 public void setNombre(String nombre) {
 this.nombre = nombre;
+}
+@Override
+public String toString() {
+	String salida="";
+	salida="("+id+") Producto: "+nombre+"\nPrecio: "+precio+"€\n";
+	return salida;
 }
 }
