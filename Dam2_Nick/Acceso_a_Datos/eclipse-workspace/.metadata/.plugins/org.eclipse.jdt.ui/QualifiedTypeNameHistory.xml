@@ -32,4 +32,5 @@
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.awt.List"/>
     <fullyQualifiedTypeName name="com.dam2.goya.Producto"/>
+    <fullyQualifiedTypeName name="com.goya.institutos.Alumno"/>
 </qualifiedTypeNameHistroy>

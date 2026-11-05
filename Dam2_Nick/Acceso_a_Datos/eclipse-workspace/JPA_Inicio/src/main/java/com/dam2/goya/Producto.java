@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "productos")
 public class Producto {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id //Le dice que es clase primaria
+@GeneratedValue(strategy = GenerationType.IDENTITY) //Hace el id autoincrementable
 private Long id;
 // @Column(name = "producto", length = 100, nullable = false, unique = true)
 private String nombre;

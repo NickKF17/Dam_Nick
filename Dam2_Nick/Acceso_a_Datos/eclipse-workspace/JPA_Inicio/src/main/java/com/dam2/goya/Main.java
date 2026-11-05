@@ -17,8 +17,8 @@ Persistence.createEntityManagerFactory("clasePU");
 EntityManager em = emf.createEntityManager();
 try {
 //em.getTransaction().begin();//Este y commit solo si hacemos cambios dentro de la base de datos
-String jpql="From Producto p Where p.precio > 30";
-	List<Producto> lista =em.createQuery(jpql,Producto.class).getResultList();
+String jpql="From Producto p Where p.precio > :precioMax";
+	List<Producto> lista =em.createQuery(jpql,Producto.class).setParameter("precioMax", 30).getResultList();
 	for(Producto p:lista)
 		System.out.println(p);
 	
