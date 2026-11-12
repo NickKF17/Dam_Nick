@@ -38,7 +38,9 @@ bases de datos -->
 <groupId>org.hibernate.tool</groupId>
 <artifactId>hibernate-tools-maven</artifactId>
 <version>6.5.2.Final</version>
-<executions>
+
+<!--
+	<executions>
 <execution>
 <id>generate-entities</id>
 <phase>generate-sources</phase>
@@ -47,6 +49,8 @@ bases de datos -->
 </goals>
 </execution>
 </executions>
+-->
+
 <configuration>
 <!-- En este directorio se dejaran las clases que
 se generen -->
