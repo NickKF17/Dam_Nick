@@ -2,6 +2,7 @@ package Hilos2;
 
 public class Navio extends Thread {
 	private Playa cola;
+private static int tiempo=0;
 
 
 	private int tipo; // 0=Barco,1=Lancha
@@ -24,8 +25,22 @@ public class Navio extends Thread {
     public void run() {
     	do {
     		this.setCantidad();
-    		cola.rescatar(this.tipo,this.cantidad);	
-    	}while(Playa.getSoldados()>=0);
+    		cola.rescatar(this.tipo,this.cantidad);
+    		
+
+    	}while(tiempo<(6*24000));
        
     }
+	
+	public int getTipo() {
+		return tipo;
+	}
+	
+	public static void anyadirtiempo(int tiempito) {
+		tiempo+=tiempito;
+	
+	}
+	public static int getTiempo() {
+		return tiempo;
+	}
 }
