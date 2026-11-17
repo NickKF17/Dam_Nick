@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ed5b014-6b63-4a50-9df4-59cc40fef998" name="Changes" comment="" />
+    <list default="true" id="7ed5b014-6b63-4a50-9df4-59cc40fef998" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PSP/Eclipse-Workspace/UT1_1_EjecutarAplicacionProcessBuilder/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PSP/Eclipse-Workspace/UT1_2_EjecutarAplicacionRuntime/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PSP/Eclipse-Workspace/UT1_3_DestruccionProceso/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PSP/Eclipse-Workspace/UT1_4_Environment/bin/.gitignore" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,14 +38,17 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/alumno/Dam_Nick/Dam2_Nick/AED/TelemetrySystemHecho",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
+        <option value="bundled-jdk-30f59d01ecdd-ac68fc9d2b05-intellij.indexing.shared.core-IU-263.7307.200" />
       </set>
     </attachedChunks>
   </component>
