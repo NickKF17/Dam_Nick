@@ -4,4 +4,10 @@
 		<item key="DIALOG_X_ORIGIN" value="725"/>
 		<item key="DIALOG_Y_ORIGIN" value="388"/>
 	</section>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<list key="findhistory">
+			<item value="naciones"/>
+		</list>
+	</section>
 </section>
