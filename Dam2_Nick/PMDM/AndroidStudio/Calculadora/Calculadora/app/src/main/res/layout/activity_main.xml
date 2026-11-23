@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ARCHIVO: res/layout/activity_main.xml
+    Aquí se dibuja la pantalla. OJO: no hay colores, tamaños de letra ni
+    esquinas directamente en los botones; todo eso viene de styles.xml.
+    Solo ponemos aquí: el id, el texto, el estilo y la posición.
+
+    Estructura:
+      ConstraintLayout (contenedor principal)
+        ├─ tvExpression  (pantalla pequeña: "12.5 + 4")
+        ├─ tvResult      (pantalla grande: número actual o resultado)
+        └─ GridLayout    (rejilla de 5 filas x 4 columnas con los botones)
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/calc_background"
+    android:padding="12dp">
+
+    <!-- PANTALLA SECUNDARIA: muestra la operación en curso -->
+    <TextView
+        android:id="@+id/tvExpression"
+        style="@style/Calculator.Display.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=""
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- PANTALLA PRINCIPAL: número actual o resultado -->
+    <TextView
+        android:id="@+id/tvResult"
+        style="@style/Calculator.Display.Main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintTop_toBottomOf="@id/tvExpression"
+        app:layout_constraintBottom_toTopOf="@id/gridButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <!--
+        REJILLA DE BOTONES
+        - columnCount=4 y rowCount=5: 4 columnas y 5 filas.
+        - Cada botón usa layout_columnWeight=1 / layout_rowWeight=1 para repartirse
+          el espacio por igual (así se adapta a cualquier tamaño de pantalla).
+        - layout_width/height = 0dp significa "ocupa lo que le toque por el peso".
+    -->
+    <GridLayout
+        android:id="@+id/gridButtons"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="4"
+        android:rowCount="5"
+        app:layout_constraintTop_toBottomOf="@id/tvResult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_weight="2">
+
+        <!-- ============ FILA 1: C  ±  DEL  ÷ ============ -->
+        <Button
+            android:id="@+id/btnClear"
+            style="@style/Calculator.Button.Special"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="C" />
+
+        <Button
+            android:id="@+id/btnSign"
+            style="@style/Calculator.Button.Special"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="±" />
+
+        <Button
+            android:id="@+id/btnDel"
+            style="@style/Calculator.Button.Special"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="DEL" />
+
+        <Button
+            android:id="@+id/btnDiv"
+            style="@style/Calculator.Button.Operator"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="÷" />
+
+        <!-- ============ FILA 2: 7  8  9  × ============ -->
+        <Button
+            android:id="@+id/btn7"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btnMul"
+            style="@style/Calculator.Button.Operator"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="×" />
+
+        <!-- ============ FILA 3: 4  5  6  - ============ -->
+        <Button
+            android:id="@+id/btn4"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btnSub"
+            style="@style/Calculator.Button.Operator"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="-" />
+
+        <!-- ============ FILA 4: 1  2  3  + ============ -->
+        <Button
+            android:id="@+id/btn1"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/Calculator.Button.Operator"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="+" />
+
+        <!-- ============ FILA 5: 0 (ocupa 2 columnas)  .  = ============ -->
+        <Button
+            android:id="@+id/btn0"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btnDot"
+            style="@style/Calculator.Button.Number"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="." />
+
+        <Button
+            android:id="@+id/btnEquals"
+            style="@style/Calculator.Button.Equals"
+            android:layout_width="0dp" android:layout_height="0dp"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"
+            android:layout_margin="4dp"
+            android:text="=" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

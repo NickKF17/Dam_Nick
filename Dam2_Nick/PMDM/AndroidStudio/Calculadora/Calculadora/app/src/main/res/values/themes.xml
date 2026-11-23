@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Calculadora" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Hace que la hora y la batería se vean en oscuro sobre el fondo claro -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

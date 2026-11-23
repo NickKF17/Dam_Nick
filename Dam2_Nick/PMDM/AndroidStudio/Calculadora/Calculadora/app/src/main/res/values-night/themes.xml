@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Calculadora" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Mantiene la hora y la batería en oscuro aunque el móvil esté en modo noche -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

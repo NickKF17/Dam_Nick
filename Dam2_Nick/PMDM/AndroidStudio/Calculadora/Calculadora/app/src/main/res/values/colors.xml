@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Color de fondo de toda la pantalla (blanco hielo / cabello plateado) -->
+    <color name="calc_background">#F4F6F9</color>
+
+    <!-- Colores de las dos pantallas (TextView) -->
+    <color name="calc_display_main_text">#232530</color>      <!-- número grande: carbón profundo -->
+    <color name="calc_display_secondary_text">#6E768A</color> <!-- operación pequeña: gris azulado atenuado -->
+
+    <!-- Botones numéricos (0-9 y el punto): blanco puro con texto oscuro -->
+    <color name="calc_number_bg">#FFFFFF</color>
+    <color name="calc_number_text">#232530</color>
+
+    <!-- Botones de operadores básicos (+ - × ÷): gris pizarra oscuro con texto blanco -->
+    <color name="calc_operator_bg">#383C4A</color>
+    <color name="calc_operator_text">#FFFFFF</color>
+
+    <!-- Botones de acciones especiales (C, DEL, ±): azul niebla (ojos) con texto blanco -->
+    <color name="calc_special_bg">#8E9BB5</color>
+    <color name="calc_special_text">#FFFFFF</color>
+
+    <!-- Botón igual (=): rojo carmesí suave (lazo del uniforme) con texto blanco -->
+    <color name="calc_equals_bg">#C84B59</color>
+    <color name="calc_equals_text">#FFFFFF</color>
+
+
+</resources>
